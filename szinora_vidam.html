@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html><head>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by VHPetra (http://jsbin.com/jizazem/3/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+  
+  <meta name="robots" content="noindex">
+
+  
+  <meta name="description" content="sötét óra">
+
+  
+  <meta charset="utf-8">
+
+  
+  <meta name="viewport" content="width=device-width">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+  <title>Szín óra</title>
+
+  
+  
+  <style id="jsbin-css">
+html, body {
+  height: 100%;
+}
+#keret{
+  position: relative;
+  left: 60%;
+   height: 100px;
+  width: 255px;
+  background-color: red;
+}
+#clock {
+  position: relative;
+  top: 3%;
+  left: 2%;
+  height: 55px;
+  width: 245px;
+  text-align: center;
+   
+  font-family: 'Shrikhand', cursive;
+  font-size: 40px;
+  margin-top: 10px;
+  
+  background-color: ivory;
+ 
+  box-shadow: 5px 15px 15px 10px black;
+  
+}
+* { margin: 0; padding: 0; }
+
+  </style>
+</head><body>
+<div id="keret" class="piros">
+<div id="clock"> 12:13:14 </div>
+</div>
+
+<script id="jsbin-javascript">
+function colorClock(){  
+var date = new Date();
+var hours = date.getHours();
+var minutes = date.getMinutes();
+var seconds = date.getSeconds();
+var hexColor = '#e' +(3*hours + 2*minutes + seconds);
+  
+  document.body.style.background = hexColor;
+
+  if (hours < 10) {
+  hours = '0' + hours;
+}
+  if (minutes < 10) {
+  minutes = '0' + minutes;
+}
+  if (seconds < 10) {
+  seconds = '0' + seconds;
+}
+  
+var clockFace=hours + ':' + minutes + ':' + seconds;
+  
+document.getElementById('clock').innerHTML = clockFace;
+  
+  setTimeout(function() {
+    colorClock();
+  }, 1000);
+}
+colorClock();
+</script>
+</body></html>
